@@ -1,11 +1,13 @@
 import React, {Component} from 'react';
 import './App.css';
-import {Button, Card, Form} from "antd";
+import {Card, Form} from "antd";
 import TextInput from "./components/ui/inputs/TextInput";
 import MaskInput from "./components/ui/inputs/MaskInput";
 import Select from "./components/ui/selects/Select";
 import PrimaryButton from "./components/ui/buttons/PrimaryButton";
 import axios from "axios";
+import withRouter from "./hoc/withRouter";
+import Loader from "./components/Loader/Loader";
 
 
 
@@ -13,21 +15,30 @@ class App extends Component{
 
   sendingForm = React.createRef();
 
+  state = {
+    loading: false
+  }
 
   render() {
 
     const sendData = () => {
-      const data = this.sendingForm.current.getFieldsValue()
-      const dataReplace = {...data, Sum: data.Sum.replace(/\s/g, ""), Iin: data.Iin.replace(/-/g, "")}
-      console.log("Sending6767676наа", dataReplace)
 
       this.sendingForm.current.validateFields().then((data) => {
-        const dataReplace = {...data, Sum: data.Sum.replace(/\s/g, ""), Iin: data.Iin.replace(/-/g, "")}
-        axios.post("https://api.proidea.tech/exchange/test_woopay", dataReplace).then((resp) => {
-          console.log("Resp", resp)
+        this.setState({
+          loading: true
+        })
+        const dataReplace = {BankId: Number(data.BankId), Sum: Number(data.Sum.replace(/\s/g, "")), Iin: data.Iin.replace(/-/g, "")}
+        axios.post("https://api.proidea.tech/exchange/test_woopay", dataReplace).then(({data}) => {
+          if(data.isSuccess) {
+            window.location.href = data.redirectionUrl;
+          } else {
+            this.setState({
+              loading: false
+            })
+          }
+          return null;
         })
       })
-
     }
 
     const changeField = (name, val) => {
@@ -36,6 +47,9 @@ class App extends Component{
 
     return (
       <div className="App">
+        {
+          this.state.loading && <Loader/>
+        }
         <Card style={{}}>
           <Form
             ref={this.sendingForm}
@@ -95,4 +109,4 @@ class App extends Component{
   }
 }
 
-export default App;
+export default withRouter(App);
