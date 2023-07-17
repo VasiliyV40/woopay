@@ -53,9 +53,11 @@ class App extends Component{
         <Card style={{}}>
           <Form
             ref={this.sendingForm}
+            layout="vertical"
           >
             <Form.Item
               name="BankId"
+              label="Банк"
             >
               <Select
                 data={[
@@ -67,6 +69,7 @@ class App extends Component{
             </Form.Item>
             <Form.Item
               name="Iin"
+              label="ИИН"
             >
               <MaskInput
                 name={"Iin"}
@@ -76,6 +79,7 @@ class App extends Component{
             </Form.Item>
             <Form.Item
               name="Sum"
+              label="Сумма"
             >
               <TextInput onChange={e => {
                 const value = e.target.value;
