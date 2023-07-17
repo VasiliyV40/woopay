@@ -99,6 +99,7 @@ class App extends Component{
                 changeField("Sum", numberWithSpaces(changeVal))}
               }/>
             </Form.Item>
+            <H1>dfdfdfd</H1>
             <div>
               <PrimaryButton
                 title="Отправить"
