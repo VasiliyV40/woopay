@@ -1,0 +1,48 @@
+.wrapper {
+  padding: 16px;
+  background: #FFFFFF;
+  box-shadow: 0 1px 1px rgba(0, 0, 0, 0.06);
+  border-radius: 11px;
+  display: flex;
+  align-items: center;
+  font-weight: 600;
+  font-size: 16px;
+  line-height: 19px;
+  height: 100%;
+  color: #000000;
+  &.service {
+    padding: 20px 16px;
+  }
+
+  .verticalText {
+    margin-top: auto;
+    * {
+      text-align: center;
+      display: block;
+    }
+  }
+  .text {
+    margin-left: 16px;
+  }
+
+  img {
+    width: 56px;
+    height: 56px;
+  }
+
+  &.vertical {
+    flex-direction: column;
+    min-height: 140px;
+
+
+    img {
+      width: 70px;
+      height: 70px;
+      &.round{
+        background-color: #f0f0f0;
+        border-radius: 100px;
+        overflow: hidden;
+      }
+    }
+  }
+}

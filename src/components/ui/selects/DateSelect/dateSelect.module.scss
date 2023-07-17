@@ -1,0 +1,11 @@
+.select {
+  padding: 14px 16px;
+  font-size: 16px;
+  :global {
+    .ant-picker-input {
+      input {
+        line-height: 18px;
+      }
+    }
+  }
+}
