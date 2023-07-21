@@ -2,6 +2,8 @@ html, body, #root {
   height: 100%;
 }
 .App {
+  display: flex;
+  flex-direction: column;
   text-align: center;
   background-color: #556c72;
   height: 100%;
@@ -33,6 +35,35 @@ html, body, #root {
 
 .App-link {
   color: #61dafb;
+}
+
+.link {
+  color: #bfcbce;
+  text-decoration: none;
+  border-bottom: 1px solid #bfcbce;
+}
+.link:hover {
+  color: #ffffff;
+  border-bottom: 1px solid #ffffff;
+}
+
+.ant-form-item-explain-error {
+  text-align: left;
+}
+.ant-checkbox-wrapper:not(.ant-checkbox-wrapper-disabled):hover .ant-checkbox-inner, :where(.css-dev-only-do-not-override-1m62vyb).ant-checkbox:not(.ant-checkbox-disabled):hover .ant-checkbox-inner{
+  border-color: #093945 !important;
+}
+
+.ant-checkbox-wrapper:not(.ant-checkbox-wrapper-disabled):hover .ant-checkbox-checked:not(.ant-checkbox-disabled) .ant-checkbox-inner {
+  background-color: #093945;
+}
+
+.ant-checkbox-checked .ant-checkbox-inner {
+  background-color:  #093945;
+  border-color:  #093945;
+}
+.ant-checkbox-wrapper:not(.ant-checkbox-wrapper-disabled):hover .ant-checkbox-checked:not(.ant-checkbox-disabled):after {
+  border-color: #093945;
 }
 
 @keyframes App-logo-spin {
