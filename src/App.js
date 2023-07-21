@@ -219,15 +219,16 @@ class App extends Component{
           <div style={{textAlign:"left", marginTop: 30}}>
             <Checkbox onChange={onChange}>Я согласен с договором оферты</Checkbox>
           </div>
+          <Row gutter={20} style={{marginTop: "auto"}}>
+            <Col span={24} style={{padding:"10px 0"}}>
+              <a href={privacyPolicy} className="link">Политика конфиденциальности</a>
+            </Col>
+            <Col span={24} style={{padding:"10px 0"}}>
+              <a href={offerAgreement} className="link">Договор оферты</a>
+            </Col>
+          </Row>
         </Card>
-        <Row gutter={20} style={{marginTop: "auto"}}>
-          <Col span={24} style={{padding:"10px 0"}}>
-            <a href={privacyPolicy} className="link">Политика конфиденциальности</a>
-          </Col>
-          <Col span={24} style={{padding:"10px 0"}}>
-            <a href={offerAgreement} className="link">Договор оферты</a>
-          </Col>
-        </Row>
+
       </div>
     );
   }
