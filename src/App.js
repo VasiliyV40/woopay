@@ -113,7 +113,6 @@ class App extends Component{
     const sendData = () => {
 
       this.sendingForm?.current.validateFields().then((data) => {
-        console.log("SAESADSASADSDs ", )
         this.setState({
           loading: true
         })
@@ -151,84 +150,88 @@ class App extends Component{
         {
           this.state.loading && <Loader/>
         }
-        <Card style={{}}>
-          <Form
-            ref={this.sendingForm}
-            layout="vertical"
-          >
-            <Form.Item
-              name="BankId"
-              label="Банк"
-              rules={formValidateRules("required")}
+        <div style={{display: "flex", flexDirection: "column", height: "100%"}}>
+          <Card>
+            <Form
+              ref={this.sendingForm}
+              layout="vertical"
             >
-              <Select
-                data={[
-                  { value: '1', label: 'BTБ' },
-                  { value: '2', label: 'HALYK' },
-                  { value: '3', label: 'KASPI' },
-                ]}
-              />
-            </Form.Item>
-            <Form.Item
-              name="Iin"
-              label="ИИН"
-              rules={formValidateRules("length", 12)}
-            >
-              <MaskInput
-                name={"Iin"}
-                mask={"000000-0-0000-0"}
-                inputMode="tel"
-                onChange={(e) => {
-                  console.log("dfdsff", e.unmaskedValue)
-                  changeField("Iin", e.unmaskedValue)
-                }}
+              <Form.Item
+                name="BankId"
+                label="Банк"
+                rules={formValidateRules("required")}
+              >
+                <Select
+                  data={[
+                    { value: '1', label: 'BTБ' },
+                    { value: '2', label: 'HALYK' },
+                    { value: '3', label: 'KASPI' },
+                  ]}
+                />
+              </Form.Item>
+              <Form.Item
+                name="Iin"
+                label="ИИН"
+                rules={formValidateRules("length", 12)}
+              >
+                <MaskInput
+                  name={"Iin"}
+                  mask={"000000-0-0000-0"}
+                  inputMode="tel"
+                  onChange={(e) => {
+                    console.log("dfdsff", e.unmaskedValue)
+                    changeField("Iin", e.unmaskedValue)
+                  }}
 
-              />
-            </Form.Item>
-            <Form.Item
-              name="Sum"
-              label="Сумма"
-              rules={formValidateRules("required")}
-            >
-              <TextInput onChange={e => {
-                const value = e.target.value;
-                const changeVal = value
-                  .replace(/,/, '.')
-                  .replace(/[^.\d]+/g,"")
-                  .replace( /^([^\.]*\.)|\./g, '$1' )
+                />
+              </Form.Item>
+              <Form.Item
+                name="Sum"
+                label="Сумма"
+                rules={formValidateRules("required")}
+              >
+                <TextInput onChange={e => {
+                  const value = e.target.value;
+                  const changeVal = value
+                    .replace(/,/, '.')
+                    .replace(/[^.\d]+/g,"")
+                    .replace( /^([^\.]*\.)|\./g, '$1' )
 
-                console.log("1werwerer", changeVal, typeof changeVal )
+                  console.log("1werwerer", changeVal, typeof changeVal )
 
-                function numberWithSpaces(x) {
-                  var parts = x.toString().split(".");
-                  parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, " ");
-                  return parts.join(".");
-                }
+                  function numberWithSpaces(x) {
+                    var parts = x.toString().split(".");
+                    parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, " ");
+                    return parts.join(".");
+                  }
 
-                changeField("Sum", numberWithSpaces(changeVal))}
-              }/>
-            </Form.Item>
-            <div style={{marginTop: 40}}>
-              <PrimaryButton
-                title="Отправить"
-                onClick={sendData}
-                disabled={!this.state.checked}
-              />
+                  changeField("Sum", numberWithSpaces(changeVal))}
+                }/>
+              </Form.Item>
+              <div style={{marginTop: 40}}>
+                <PrimaryButton
+                  title="Отправить"
+                  onClick={sendData}
+                  disabled={!this.state.checked}
+                />
+              </div>
+            </Form>
+            <div style={{textAlign:"left", marginTop: 30}}>
+              <Checkbox onChange={onChange}>Я согласен с договором оферты</Checkbox>
             </div>
-          </Form>
-          <div style={{textAlign:"left", marginTop: 30}}>
-            <Checkbox onChange={onChange}>Я согласен с договором оферты</Checkbox>
-          </div>
-          <Row gutter={20} style={{marginTop: "auto"}}>
-            <Col span={24} style={{padding:"10px 0"}}>
-              <a href={privacyPolicy} className="link">Политика конфиденциальности</a>
-            </Col>
-            <Col span={24} style={{padding:"10px 0"}}>
-              <a href={offerAgreement} className="link">Договор оферты</a>
-            </Col>
-          </Row>
-        </Card>
 
+          </Card>
+          <div style={{marginTop: "auto"}}>
+            <Row>
+              <Col span={24} style={{padding:"10px 0"}}>
+                <a href={privacyPolicy} className="link">Политика конфиденциальности</a>
+              </Col>
+              <Col span={24} style={{padding:"10px 0"}}>
+                <a href={offerAgreement} className="link">Договор оферты</a>
+              </Col>
+            </Row>
+          </div>
+        </div>
       </div>
     );
   }
