@@ -190,7 +190,7 @@ class App extends Component{
                 label="Сумма"
                 rules={formValidateRules("required")}
               >
-                <TextInput onChange={e => {
+                <TextInput type="number" onChange={e => {
                   const value = e.target.value;
                   const changeVal = value
                     .replace(/,/, '.')
