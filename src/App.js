@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import './App.css';
-import {Card, Col, Row, Form, Checkbox} from "antd";
+import {Card, Col, Row, Form, Checkbox, Space, Layout} from "antd";
 import TextInput from "./components/ui/inputs/TextInput";
 import MaskInput from "./components/ui/inputs/MaskInput";
 import Select from "./components/ui/selects/Select";
@@ -23,6 +23,7 @@ class App extends Component{
   }
 
   render() {
+    const { Header, Footer, Sider, Content } = Layout;
 
     const formValidateRules = (id, val) => {
       switch (id) {
@@ -150,88 +151,102 @@ class App extends Component{
         {
           this.state.loading && <Loader/>
         }
-        <div style={{display: "flex", flexDirection: "column", height: "100%"}}>
-          <Card>
-            <Form
-              ref={this.sendingForm}
-              layout="vertical"
-            >
-              <Form.Item
-                name="BankId"
-                label="Банк"
-                rules={formValidateRules("required")}
-              >
-                <Select
-                  data={[
-                    { value: '1', label: 'BTБ' },
-                    { value: '2', label: 'HALYK' },
-                    { value: '3', label: 'KASPI' },
-                  ]}
-                />
-              </Form.Item>
-              <Form.Item
-                name="Iin"
-                label="ИИН"
-                rules={formValidateRules("length", 12)}
-              >
-                <MaskInput
-                  name={"Iin"}
-                  mask={"000000-0-0000-0"}
-                  inputMode="tel"
-                  onChange={(e) => {
-                    console.log("dfdsff", e.unmaskedValue)
-                    changeField("Iin", e.unmaskedValue)
-                  }}
 
-                />
-              </Form.Item>
-              <Form.Item
-                name="Sum"
-                label="Сумма"
-                rules={formValidateRules("required")}
-              >
-                <TextInput type="number" onChange={e => {
-                  const value = e.target.value;
-                  const changeVal = value
-                    .replace(/,/, '.')
-                    .replace(/[^.\d]+/g,"")
-                    .replace( /^([^\.]*\.)|\./g, '$1' )
+          <div style={{maxWidth: "400px", width: "100%", margin: "0 auto", height: "100%"}}>
+            <div style={{display: "flex", flexDirection: "column", height: "100%"}}>
+              <div className="formWrap">
+                <Card>
+                  <Form
+                    ref={this.sendingForm}
+                    layout="vertical"
+                  >
+                    <Form.Item
+                      name="BankId"
+                      label="Банк"
+                      rules={formValidateRules("required")}
+                    >
+                      <Select
+                        data={[
+                          { value: '1', label: 'BTБ' },
+                          { value: '2', label: 'HALYK' },
+                          { value: '3', label: 'KASPI' },
+                        ]}
+                      />
+                    </Form.Item>
+                    <Form.Item
+                      name="Iin"
+                      label="ИИН"
+                      rules={formValidateRules("length", 12)}
+                    >
+                      <MaskInput
+                        name={"Iin"}
+                        mask={"000000-0-0000-0"}
+                        inputMode="tel"
+                        onChange={(e) => {
+                          console.log("dfdsff", e.unmaskedValue)
+                          changeField("Iin", e.unmaskedValue)
+                        }}
 
-                  console.log("1werwerer", changeVal, typeof changeVal )
+                      />
+                    </Form.Item>
+                    <Form.Item
+                      name="Sum"
+                      label="Сумма"
+                      rules={formValidateRules("required")}
+                    >
+                      <TextInput type="number" onChange={e => {
+                        const value = e.target.value;
+                        const changeVal = value
+                          .replace(/,/, '.')
+                          .replace(/[^.\d]+/g,"")
+                          .replace( /^([^\.]*\.)|\./g, '$1' )
 
-                  function numberWithSpaces(x) {
-                    var parts = x.toString().split(".");
-                    parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, " ");
-                    return parts.join(".");
-                  }
+                        console.log("1werwerer", changeVal, typeof changeVal )
 
-                  changeField("Sum", numberWithSpaces(changeVal))}
-                }/>
-              </Form.Item>
-              <div style={{marginTop: 40}}>
-                <PrimaryButton
-                  title="Отправить"
-                  onClick={sendData}
-                  disabled={!this.state.checked}
-                />
+                        function numberWithSpaces(x) {
+                          var parts = x.toString().split(".");
+                          parts[0] = parts[0].replace(/\B(?=(\d{3})+(?!\d))/g, " ");
+                          return parts.join(".");
+                        }
+
+                        changeField("Sum", numberWithSpaces(changeVal))}
+                      }/>
+                    </Form.Item>
+                    <div style={{marginTop: 40}}>
+                      <PrimaryButton
+                        title="Отправить"
+                        onClick={sendData}
+                        disabled={!this.state.checked}
+                      />
+                    </div>
+                  </Form>
+                  <div style={{textAlign:"left", marginTop: 30}}>
+                    <Checkbox onChange={onChange}>Я согласен с договором оферты</Checkbox>
+                  </div>
+
+                </Card>
               </div>
-            </Form>
-            <div style={{textAlign:"left", marginTop: 30}}>
-              <Checkbox onChange={onChange}>Я согласен с договором оферты</Checkbox>
-            </div>
+              <div style={{marginTop: "auto"}}>
+                <div style={{display: "flex", flexDirection: "column", height: "100%"}}>
 
-          </Card>
-          <div style={{marginTop: "auto"}}>
-            <Row>
-              <Col span={24} style={{padding:"10px 0"}}>
-                <a href={privacyPolicy} className="link">Политика конфиденциальности</a>
-              </Col>
-              <Col span={24} style={{padding:"10px 0"}}>
-                <a href={offerAgreement} className="link">Договор оферты</a>
-              </Col>
-            </Row>
+                  <div style={{marginTop: "auto"}}>
+                    <Row>
+                      <Col span={24} style={{padding:"10px 0"}}>
+                        <a href={privacyPolicy} className="link">Политика конфиденциальности</a>
+                      </Col>
+                      <Col span={24} style={{padding:"10px 0"}}>
+                        <a href={offerAgreement} className="link">Договор оферты</a>
+                      </Col>
+                    </Row>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-        </div>
+
+
+
+
       </div>
     );
   }
