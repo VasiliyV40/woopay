@@ -8,8 +8,8 @@ import PrimaryButton from "./components/ui/buttons/PrimaryButton";
 import axios from "axios";
 import withRouter from "./hoc/withRouter";
 import Loader from "./components/Loader/Loader";
-import privacyPolicy from "./docs/privacy_policy.docx"
-import offerAgreement from "./docs/offer_agreement.doc"
+import privacyPolicy from "./docs/privacy_policy.pdf"
+import offerAgreement from "./docs/offer_agreement.pdf"
 
 
 
