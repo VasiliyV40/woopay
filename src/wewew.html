@@ -1,0 +1,958 @@
+<html xmlns:msxsl="urn:schemas-microsoft-com:xslt"><head><style type="text/css">
+  body {
+    padding: 20px;
+    margin: 0;
+    background-color: #333333;
+    border-style: solid;
+    border-width: 0px;
+    border-color: #000000;
+    font-family: "Times New Roman", "Segoe UI", Arial;
+    line-height: 1.2;
+  }
+  .wrapper {
+    text-align: center;
+    /*height:210mm;*/
+    width:210mm;
+    background-color: #ffffff;
+    margin: 0 auto;
+    padding: 36px 55px 38px 100px;
+    box-sizing: border-box;
+    font-size: 11px;
+    font-family: "Times New Roman", "Segoe UI", Arial;
+  }
+  .torg-2 .table td, .torg-2 .table .td{
+    padding: 2px 5px;
+    position: relative;
+  }
+  .torg-2 .table .p-0{
+    padding: 0;
+  }
+  .torg-2 .table .t-r{
+    text-align: right;
+  }
+  .torg-2 .table .t-l{
+    text-align: left;
+  }
+  .torg-2 .table .t-c{
+    text-align: center;
+  }
+  .torg-2 .table .t-j{
+    text-align: justify;
+  }
+
+  .torg-2 .table .t-j:after {
+    content: "";
+    display: inline-block;
+    width: 100%;
+  }
+
+  .torg-2 .table .b-r{
+    border-right: 1px solid #000000;
+  }
+  .torg-2 .table .b-l{
+    border-left: 1px solid #000000;
+  }
+  .torg-2 .table .b-t{
+    border-top: 1px solid #000000;
+  }
+  .torg-2 .table .b-b{
+    border-bottom: 1px solid #000000;
+  }
+  .torg-2 .table .b-all{
+    border: 1px solid #000000;
+  }
+  .torg-2 .table .b-r2{
+    border-right: 2px solid #000000;
+  }
+  .torg-2 .table .b-l2{
+    border-left: 2px solid #000000;
+  }
+  .torg-2 .table .b-t2{
+    border-top: 2px solid #000000;
+  }
+  .torg-2 .table .b-b2{
+    border-bottom: 2px solid #000000;
+  }
+  .torg-2 .table .b-all2{
+    border: 2px solid #000000;
+  }
+  .torg-2 .table .b-x{
+    border-right: 1px solid #000000;
+    border-left: 1px solid #000000;
+  }
+  .torg-2 .table .b-y{
+    border-top: 1px solid #000000;
+    border-bottom: 1px solid #000000;
+  }
+  .torg-2 .table .b-x2{
+    border-right: 2px solid #000000;
+    border-left: 2px solid #000000;
+  }
+  .torg-2 .table .b-y2{
+    border-top: 2px solid #000000;
+    border-bottom: 2px solid #000000;
+  }
+
+  .torg-2 .fs-8 {
+    font-size: 8px;
+  }
+  .torg-2 .fs-9 {
+    font-size: 9px;
+  }
+  .torg-2 .fs-10 {
+    font-size: 10px;
+  }
+  .torg-2 .fs-11 {
+    font-size: 11px;
+  }
+
+  .torg-2 .fs-12 {
+    font-size: 12px;
+  }
+  .torg-2 .fs-13 {
+    font-size: 13px;
+  }
+  .torg-2 .fs-14 {
+    font-size: 14px;
+  }
+  .torg-2 .fs-15 {
+    font-size: 15px;
+  }
+  .torg-2 .fs-16 {
+    font-size: 16px;
+  }
+
+  .torg-2 .no-br{
+    white-space: nowrap;
+  }
+
+  .torg-2 .sub-text{
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -11px;
+  }
+
+  .torg-2 .d-f {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+  }
+  .torg-2 .grow {
+    flex-grow: 1;
+  }
+
+
+  .torg-2 .title-head {
+    width: 100%;
+  }
+  .torg-2 .title-head .articule {
+    display: flex;
+    justify-content: flex-end
+  }
+  .torg-2 .title-head .articule div {
+    text-align: left;
+    font-size: 11px;
+  }
+  .torg-2 .title-head .date {
+    width: 160px;
+    position: absolute;
+    top: -55px;
+    left: 50%;
+    margin-left: -50px;
+  }
+  .torg-2 .title-head .signature {
+    width: 190px;
+    position: absolute;
+    top: -30px;
+    right: 0;
+  }
+
+  .torg-2 table.bordered {
+    border-collapse: collapse;
+  }
+
+  .torg-2 table.bordered td {
+    padding: 2px 6px;
+    border: 1px solid #000000;
+  }
+
+  .torg-2 .delivery {
+    width: 100%;
+    margin-top: 20px;
+    border-collapse: collapse;
+  }
+
+  .torg-2 .delivery td {
+    border: 1px solid #000000;
+    vertical-align: middle;
+    padding: 0;
+  }
+
+  .torg-2 .delivery tr:first-child td {
+    font-size: 12px;
+    padding: 2px 5px;
+  }
+  .torg-2 .delivery tr:nth-child(4) td {
+    border-top: 2px solid #000000;
+    height: 30px;
+  }
+  .torg-2 .delivery tr:last-child td  {
+    border-bottom: 2px solid #000000;
+  }
+
+  .torg-2 .cargo  {
+    font-size: 14px;
+  }
+
+  .torg-2 .cargo tr:nth-child(-n+2)  {
+    font-size: 12px;
+  }
+
+  .torg-2 .weight {
+    font-size: 14px;
+  }
+  .torg-2 .weight tr:nth-child(-n+2), .torg-2 .weight tr td:first-child {
+    font-size: 13px;
+  }
+  .torg-2 .weight tr:nth-child(n+3) td:nth-child(1) {
+    text-align: left;
+  }
+
+  .torg-2 .product tr:nth-child(n+3) td {
+    font-size: 14px;
+  }
+
+  .torg-2 .product tr:nth-child(n+3) td:nth-child(4) {
+    border-right: 2px solid #000000;
+    border-left: 2px solid #000000;
+  }
+  .torg-2 .product tr:nth-child(3) td:nth-child(4) {
+    border-top: 2px solid #000000;
+  }
+  .torg-2 .product tr:last-child td:nth-child(4) {
+    border-bottom: 2px solid #000000;
+  }
+
+  .torg-2 .condition  td {
+    font-size: 14px;
+  }
+
+  .torg-2 .condition tr:nth-child(-n + 3) td {
+    font-size: 10px;
+    padding: 2px;
+  }
+
+  .torg-2 .condition tr:nth-child(n + 5) td:nth-child(3) {
+    border-left: 2px solid #000000;
+  }
+  .torg-2 .condition tr:nth-child(n + 5) td:last-child {
+    border-right: 2px solid #000000;
+  }
+  .torg-2 .condition tr:nth-child(5) td:nth-child(n + 3) {
+    border-top: 2px solid #000000;
+  }
+  .torg-2 .condition tr:last-child td:nth-child(n + 3) {
+    border-bottom: 2px solid #000000;
+  }
+
+</style></head><body><div class="wrapper torg-2 page-one"><div class="title-head"><div class="articule"><div>
+    Унифицированная форма № ТОРГ- 2<br />
+    Утверждена постановлением Госкомстата<br />
+    России от 25.12.98 г. № 132
+</div></div><table width="100%" border="0" cellpadding="0" cellspacing="0" class="table fs-12"><tr><td colspan="3"> </td><td colspan="3" class="t-c b-x b-t" style="width: 19%;">Код</td></tr><tr><td colspan="3" class="t-r ">Форма по ОКУД</td><td colspan="3" class="t-c b-l2 b-r2 b-t2 b-b fs-13" style="font-family: Arial;">0330202</td></tr><tr><td colspan="2" class="b-b">ЗАО Тестовый Поставщик,
+    121357,
+    г.Казань,
+    ул. Рабочая д.2, корп.95, офис 026,
+    <span class="sub-text fs-8">(организация, адрес, номер телефона)</span></td><td class="t-r no-br">
+    по ОКПО
+</td><td colspan="3" class="b-b b-x2"> </td></tr><tr><td colspan="3" class="b-b">
+     
+    <span class="sub-text fs-8" style="transform:  translateX(-90%);">(структурное подразделение)</span></td><td colspan="3" class="b-b b-x2"> </td></tr><tr><td colspan="3" class="t-r">Вид  деятельности по ОКДП</td><td colspan="3" class="b-x2"> </td></tr><tr><td>Основание  для составления акта</td><td width="36%" class="t-c b-b">
+    приказ,  распоряжение
+    <span class="sub-text fs-8">(ненужное зачеркнуть)</span></td><td class="p-0"><table width="80%" cellspacing="0" cellpadding="0" border="0" align="right"><tr><td class="b-y b-l t-r fs-12">номер</td></tr></table></td><td colspan="3" class="b-b b-x2 b-t"> </td></tr><tr><td colspan="2"> </td><td class="p-0"><table width="80%" cellspacing="0" cellpadding="0" border="0" align="right"><tr><td class="b-l b-b b-l t-r fs-12">дата</td></tr></table></td><td class="b-b b-l2 b-r" width="6.3%">20</td><td class="b-b" width="6.3%">02</td><td class="b-b b-r2 b-l" width="6.3%">2023</td></tr><tr><td colspan="3" class="t-r">Вид  операции</td><td colspan="3" class="b-b2 b-x2"> </td></tr><tr><td colspan="3"> </td><td colspan="3" class="t-l">УТВЕРЖДАЮ  Руководитель</td></tr></table><div style="margin-top: 35px; position: relative;"><div class="fs-13 t-c" style="width: 75%;"><span class="fs-16"><b>А К Т</b></span><br /><b>
+    ОБ УСТАНОВЛЕННОМ РАСХОЖДЕНИИ ПО КОЛИЧЕСТВУ<br />
+    И КАЧЕСТВУ ПРИ ПРИЕМКЕ ТОВАРНО-МАТЕРИАЛЬНЫХ ЦЕННОСТЕЙ
+</b></div><table cellpadding="0" cellspacing="0" border="0" class="date table fs-12"><tr><td width="50%" class="b-all">Номер документа</td><td width="50%" class="b-y b-r">Дата составления</td></tr><tr><td width="50%" class="b-r b-t b-l2 b-b2" style="height: 30px;">1001700340</td><td width="50%" class="b-t b-b2 b-r2 ">20.02.2023</td></tr></table><div class="signature table fs-12"><div style="width: 80%; margin: 0 auto;" class="b-b td"><span class="fs-8" style="width: 100%">Начальник</span><span class="sub-text fs-8" style="width: 100%">(должность)</span></div><div class="d-f"><div class="b-b td" style="width: 42%"><span class="fs-8" style="width: 100%">
+                      электронная подпись
+                    </span><span class="sub-text fs-8" style="width: 100%">(подпись)</span></div><div class="b-b td" style="width: 42%"><span class="fs-8" style="width: 100%">Грачева</span>
+     
+    <span class="fs-8" style="width: 100%">А.
+                    </span><span class="fs-8" style="width: 100%">Ю.
+                    </span><span class="sub-text fs-8" style="width: 100%">(расшифровка подписи)</span></div></div><div class="d-f" style="margin-top: 10px; align-items: flex-end;"><div class="d-f" style="width: 20%; align-items: flex-end;"><span>“</span><div class="b-b td" style="width: 100%">
+     
+</div><span>”</span></div><div class="b-b td" style="width: 35%">
+     
+</div><div class="b-b td" style="width: 15%">
+     
+</div><span>г.</span></div></div></div></div><div class="fs-14 table" style="margin-top: 15px;"><div class="d-f"><div class="no-br">Место приемки товара</div><div class="td b-b grow" style="margin-left: 10px;">142326,
+    Москва,
+    Тестовая,24</div></div><div><div class="t-l">Настоящий Акт составлен комиссией, которая произвела осмотр прибывшего груза и установила: 00.00.0000 доставлен товар по сопроводительному документу 223 от 18.02.2023. Перечисленные в документе ценности приняты полностью.</div>
+    <div class="d-f grow" style="margin-left: 10px;"><div class="d-f" style="width: 20%">
+        <div class="b-b td" style="width: 100%">                     
+        </div>
+    </div>
+        <div class="b-b td" style="width: 40%">                   
+        </div>
+        <div class="b-b td" style="width: 20%">
+             
+        </div>
+        <span>г.</span>
+    </div>
+</div>
+    <div class="d-f" style="margin-top: 10px;"><div class="no-br">по сопроводительным документам</div><div class="td b-b grow" style="margin-left: 10px;">УПД СЧФДОП,
+        123321,
+        20.02.2023,
+        <span class="sub-text fs-9" style="width: 100%">(наименование, номер, дата)</span></div></div><div class="td b-b" style="margin-top: 5px;"> </div><div class="t-l" style="margin-top: 10px; position: relative;">
+        доставлен товар. Документ о вызове представителя грузоотправителя, поставщика,<br /> производителя:
+        <div class="td b-b" style="width: 45%; position: absolute; right: 0; bottom: 0;">
+             
+            <span class="sub-text fs-9">(ненужное зачеркнуть)</span></div></div><div class="d-f"><div class="td b-b t-l" style="padding-left: 0;">
+        телеграмма, факс, телефонограмма, радиограмма
+        <span class="sub-text fs-9">(ненужное зачеркнуть)</span></div><div class="d-f grow" style="margin-top: 10px; align-items: flex-end;"><div class="d-f" style="width: 28%; align-items: flex-end; margin-left: 10px;"><span class="no-br">№</span><div class="b-b td" style="width: 100%">
+         
+    </div></div><div class="d-f" style="width: 18%; align-items: flex-end;"><span class="no-br">от “</span><div class="b-b td" style="width: 100%">
+         
+    </div><span>”</span></div><div class="b-b td" style="width: 25%">
+         
+    </div><div class="b-b td" style="width: 10%">
+         
+    </div><span>г.</span></div></div><div class="d-f" style="margin-top: 20px;"><div style="margin-right: 5px;">Грузоотправитель</div><div class="grow td b-b">ЗАО Тестовый Поставщик,
+        121357,
+        г.Казань,
+        ул. Рабочая д.2, корп.95, офис 026<span class="sub-text fs-9">(наименование, адрес, номер телефона)</span></div></div><div class="d-f" style="margin-top: 5px;"><div style="margin-right: 5px;">Производитель</div><div class="grow td b-b">
+        -
+        <span class="sub-text fs-9">(наименование, адрес, номер телефона)</span></div></div><div class="d-f" style="margin-top: 5px;"><div style="margin-right: 5px;">Поставщик</div><div class="grow td b-b">ЗАО Тестовый Поставщик,
+        121357,
+        г.Казань,
+        ул. Рабочая д.2, корп.95, офис 026<span class="sub-text fs-9">(наименование, адрес, номер телефона)</span></div></div><div class="d-f" style="margin-top: 5px;"><div style="margin-right: 5px;">Страховая компания</div><div class="grow td b-b">-<span class="sub-text fs-9">(наименование, адрес, номер телефона)</span></div></div><div class="d-f" style="margin-top: 20px;"><div class="td t-l" style="padding-left: 0;">
+        Договор (контракт) на поставку товара
+    </div><div class="d-f grow" style="align-items: flex-end;"><div class="d-f" style="width: 100%; align-items: flex-end; margin-left: 10px;"><span class="no-br">№</span><div class="b-b td" style="width: 100%">
+         
+    </div></div></div><div class="d-f" style="width: 40%; margin-left: 10px;"><div class="d-f" style="width: 25%; align-items: flex-end;"><span class="no-br">от “</span><div class="b-b td" style="width: 100%">
+         
+    </div><span>”</span></div><div class="b-b td" style="width: 40%">
+         
+    </div><div class="b-b td" style="width: 15%">
+         
+    </div><span>г.</span></div></div><div class="d-f"><div class="td t-l" style="padding-left: 0;">
+        Счет-фактура
+    </div><div class="d-f grow" style="align-items: flex-end;"><div class="d-f" style="width: 100%; align-items: flex-end; margin-left: 10px;"><span class="no-br">№</span><div class="b-b td" style="width: 100%">
+         
+    </div></div></div><div class="d-f" style="width: 40%; margin-left: 10px;"><div class="d-f" style="width: 25%; align-items: flex-end;"><span class="no-br">от “</span><div class="b-b td" style="width: 100%">
+         
+    </div><span>”</span></div><div class="b-b td" style="width: 40%">
+         
+    </div><div class="b-b td" style="width: 15%">
+         
+    </div><span>г.</span></div></div><div class="d-f"><div class="td t-l" style="padding-left: 0;">
+        Коммерческий акт
+    </div><div class="d-f grow" style="align-items: flex-end;"><div class="d-f" style="width: 100%; align-items: flex-end; margin-left: 10px;"><span class="no-br">№</span><div class="b-b td" style="width: 100%">
+         
+    </div></div></div><div class="d-f" style="width: 40%; margin-left: 10px;"><div class="d-f" style="width: 25%; align-items: flex-end;"><span class="no-br">от “</span><div class="b-b td" style="width: 100%">
+         
+    </div><span>”</span></div><div class="b-b td" style="width: 40%">
+         
+    </div><div class="b-b td" style="width: 15%">
+         
+    </div><span>г.</span></div></div><div class="d-f"><div class="td t-l" style="padding-left: 0;">
+        Ветеринарное свидетельство (свидетельство)
+    </div><div class="d-f grow" style="align-items: flex-end;"><div class="d-f" style="width: 100%; align-items: flex-end; margin-left: 10px;"><span class="no-br">№</span><div class="b-b td" style="width: 100%">
+         
+    </div></div></div><div class="d-f" style="width: 40%; margin-left: 10px;"><div class="d-f" style="width: 25%; align-items: flex-end;"><span class="no-br">от “</span><div class="b-b td" style="width: 100%">
+         
+    </div><span>”</span></div><div class="b-b td" style="width: 40%">
+         
+    </div><div class="b-b td" style="width: 15%">
+         
+    </div><span>г.</span></div></div><div class="d-f"><div class="td t-l" style="padding-left: 0;">
+        Железнодорожная накладная
+    </div><div class="d-f grow" style="align-items: flex-end;"><div class="d-f" style="width: 100%; align-items: flex-end; margin-left: 10px;"><span class="no-br">№</span><div class="b-b td" style="width: 100%">
+         
+    </div></div></div><div class="d-f" style="width: 40%; margin-left: 10px;"><div class="d-f" style="width: 25%; align-items: flex-end;"><span class="no-br">от “</span><div class="b-b td" style="width: 100%">
+         
+    </div><span>”</span></div><div class="b-b td" style="width: 40%">
+         
+    </div><div class="b-b td" style="width: 15%">
+         
+    </div><span>г.</span></div></div><div class="d-f" style="margin-top: 15px;"><div class="td t-l" style="padding-left: 0;">
+        Способ доставки
+    </div><div class="td b-b grow">
+         
+        <span class="sub-text fs-9">(наименование, адрес, номер телефона)</span></div><div class="d-f" style="align-items: flex-end; width: 20%;"><div class="d-f" style="width: 100%; align-items: flex-end; margin-left: 10px;"><span class="no-br">№</span><div class="b-b td" style="width: 100%">
+         
+    </div></div></div></div><div class="d-f" style="margin-top: 15px; justify-content: flex-start;"><div class="td t-l" style="padding-left: 0;">
+        Дата отправления товара
+    </div><div class="d-f" style="width: 40%; margin-left: 10px;"><div class="d-f" style="width: 18%; align-items: flex-end;"><span class="no-br"> “</span><div class="b-b td" style="width: 100%">
+         
+    </div><span>”</span></div><div class="b-b td" style="width: 45%">
+         
+    </div><div class="b-b td" style="width: 16%">
+         
+    </div><span>г.</span></div></div><div class="d-f"><div style="margin-right: 5px;">со станции (пристани, порота) отправления</div><div class="grow td b-b">
+         
+        <span class="sub-text fs-9">(наименование)</span></div></div><div class="d-f"><div style="margin-right: 5px;">или со склада отправителя товара</div><div class="grow td b-b">
+         
+        <span class="sub-text fs-9">(наименование)</span></div></div><table width="100%" border="0" cellspacing="0" cellpadding="0" class="table delivery t-c fs-11"><tr><td colspan="9">ДАТА,  ВРЕМЯ, ч. мин.</td></tr><tr><td rowspan="2">прибы­тия  то­ва­ра на стан­цию (прис­тань, порт) наз­на­че­ния</td><td rowspan="2">вскрытия  ва­го­на, авто­фур­го­на, контей­не­ра и дру­гих транс­порт­ных средств</td><td rowspan="2">выдачи то­ва­ра  ор­га­ни­за­цией транс­порта</td><td>достав­ки  то­ва­ра на склад ор­га­ни­за­ции-полу­ча­те­ля</td><td>нача­ла  раз­груз­ки</td><td colspan="4">приемки  товара</td></tr><tr><td> </td><td> </td><td>начало</td><td>приоста­нов­ле­ние</td><td>во­зоб­нов­ле­ние</td><td>окон­ча­ние</td></tr><tr><td style="border-left: 2px solid #000000; width: 11%;"> </td><td style="width: 11%;"> </td><td style="width: 11%;"> </td><td style="width: 10%;"> </td><td style="width: 10%;"> </td><td style="width: 10%;"> </td><td style="width: 10%;"> </td><td style="width: 10%;"> </td><td style="border-right: 2px solid #000000; width: 10%;"> </td></tr></table></div></div><div class="wrapper torg-2 page-two" style="margin-top: 20px;"><div class="table fs-14"><div class="t-r">
+    2-я страница формы № ТОРГ-2
+</div><div class="t-j td" style="margin-top: 15px; text-align: justify; text-indent: 30px;">
+    Сведения о состоянии вагонов, автофургонов и т. д. Наличие, описание упаковочных ярлыков, пломб транспорта на отдельных местах  (сертификатов, спецификаций в вагоне, контейнере) и
+</div><div class="d-f" style="margin-top: 0px;">
+    отправительская маркировка
+    <div class="b-b grow" style="margin-left: 10px;"> </div></div><div class="t-l" style="text-indent: 30px; margin-top: 5px;">
+    По сопроводительным транспортным документам значится:
+</div></div><table width="100%" border="0" cellspacing="0" cellpadding="0" class="table cargo bordered" style="margin-top: 5px;"><tr><td rowspan="2">Отмет­ка  об оп­лом­ би­ро­ва­нии то­ва­ра (гру­за), сос­то­яние пломб и со­дер­жа­ние от­тис­ка</td><td rowspan="2">Ко­ли­чес­тво  мест</td><td rowspan="2">Вид упа­ков­ки</td><td rowspan="2">Наиме­но­ва­ние  то­ва­ра (гру­за) или но­ме­ра ва­го­нов (контей­не­ров, авто­ фур­го­нов и  т.д.)</td><td rowspan="2">Еди­ни­ца  из­ме­ре­ния</td><td colspan="2">Масса брут­то то­ва­ра (гру­за) по до­ку­мен­там</td><td rowspan="2">Осо­бые  от­мет­ки от­пра­ви­те­ля по нак­лад­ной</td></tr><tr><td>от­пра­ви­те­ля</td><td>транс­порт­ной  ор­га­ни­за­ции (стан­ции, при­ста­ни, пор­та)</td></tr><tr><td>
+     
+</td><td>1.0</td><td>
+     
+</td><td>Футболка SDSM д дев 100% хлопок к.р. р.98-140 арт.ДЕВ-2-820</td><td>кор</td><td>
+     
+</td><td>
+     
+</td><td>
+     
+</td></tr><tr><td>
+     
+</td><td>1.0</td><td>
+     
+</td><td>Футболка SDSM д дев 100% хлопок к.р. р.98-140 арт.ДЕВ-1-820</td><td>кор</td><td>
+     
+</td><td>
+     
+</td><td>
+     
+</td></tr><tr><td>
+     
+</td><td>1.0</td><td>
+     
+</td><td>Джемпер (толстовка) SDSM д дев 100% хлопок дл.р. р.98-140 арт.ДЕВ-5-820</td><td>кор</td><td>
+     
+</td><td>
+     
+</td><td>
+     
+</td></tr><tr><td>
+     
+</td><td>1.0</td><td>
+     
+</td><td>Брюки SDSM д дев 100% хлопок р.98-140 арт.ДЕВ-7-820</td><td>кор</td><td>
+     
+</td><td>
+     
+</td><td>
+     
+</td></tr><tr><td>
+     
+</td><td>1.0</td><td>
+     
+</td><td>Футболка SDSM д мал 100% хлопок дл.р. р.98-140 арт.МАЛ-9-820</td><td>кор</td><td>
+     
+</td><td>
+     
+</td><td>
+     
+</td></tr><tr><td>
+     
+</td><td>1.0</td><td>
+     
+</td><td>Пижама (футболка+брюки) SDSM д мал 100% хлопок р.98-140 арт.МАЛ-13-820</td><td>кор</td><td>
+     
+</td><td>
+     
+</td><td>
+     
+</td></tr><tr><td>
+     
+</td><td>1.0</td><td>
+     
+</td><td>Футболка SDSM д мал 60% хлопок 40% полиэстер дл.р. р.98-140 арт.МАЛ-10-820</td><td>кор</td><td>
+     
+</td><td>
+     
+</td><td>
+     
+</td></tr><tr><td>
+     
+</td><td>1.0</td><td>
+     
+</td><td>Пижама (футболка+шорты) SDSM д мал 100% хлопок р.98-140 арт.МАЛ-12-820</td><td>кор</td><td>
+     
+</td><td>
+     
+</td><td>
+     
+</td></tr><tr><td>
+     
+</td><td>1.0</td><td>
+     
+</td><td>Сорочка SDSM д дев 100% хлопок к.р. р.98-140 арт.ДЕВ-14-820</td><td>кор</td><td>
+     
+</td><td>
+     
+</td><td>
+     
+</td></tr></table><div class="table fs-14"><div class="t-j" style="margin-top: 15px; text-align: justify; text-indent: 30px;">
+    Сведения о состоянии вагонов, автофургонов и т.д. Наличие, описание установленных ярлыков, пломб транспорта на отдельных местах (сертификатов, спецификации в вагоне, контейнере)
+    <div class="d-f" style="margin-top: 0px;">
+        фактически
+        <div class="b-b grow" style="margin-left: 10px;"> </div></div></div></div><table width="100%" border="0" cellspacing="0" cellpadding="0" class="table weight bordered" style="margin-top: 20px;"><tr><td rowspan="2">Рас­хож­де­ние по ко­ли­чес­тву  мест и мас­се в ак­ти­ру­емой пар­тии  то­ва­ра, об­на­ру­жен­ные на скла­де то­ва­ро­по­лу­ча­те­ля</td><td rowspan="2" style="width: 13%;">Ко­ли­чес­тво  мест</td><td colspan="3">Масса, кг</td><td>Сте­пень  за­пол­не­ния тар­но­го мес­та, ва­го­на, кон­тей­не­ра и т.п.</td></tr><tr><td width="9%">брут­то</td><td width="9%">та­ра</td><td width="9%">нет­то</td><td> </td></tr><tr><td>По до­ку­мен­там  гру­зо­от­пра­ви­те­ля</td><td>9</td><td> </td><td> </td><td> </td><td> </td></tr><tr><td>Фак­ти­чес­ки  пос­ту­пи­ло</td><td>9</td><td> </td><td> </td><td> </td><td> </td></tr><tr><td>Рас­хож­де­ние  (+, -)</td><td>0</td><td> </td><td> </td><td> </td><td> </td></tr></table><table width="100%" border="0" cellspacing="0" cellpadding="0" class="table bordered product" style="margin-top: 30px;"><tr><td rowspan="2" style="width: 22%">
+    То­вар<br /> (на­име­но­ва­ние)
+</td><td rowspan="2" style="width: 12%">
+    Номер<br /> места
+</td><td colspan="2">Еди­ни­ца из­ме­ре­ния</td><td colspan="5">По  документам поставщика значится</td></tr><tr><td style="width: 6%">на­име­но­ва­ние</td><td style="width: 8%">код по  ОКЕИ</td><td style="width: 9%">ар­ти­кул  то­ва­ра</td><td style="width: 8%">сорт</td><td style="width: 10%">ко­ли­чест­во (мас­са)</td><td style="width: 10%">
+    це­на,<br /> руб. коп.
+</td><td style="width: 12%">
+    сум­ма,<br /> руб. коп.
+</td></tr><tr><td>Футболка SDSM д дев 100% хлопок к.р. р.98-140 арт.ДЕВ-2-820</td><td>000001</td><td>кор</td><td>8751</td><td>
+     
+</td><td>
+     
+</td><td>1.0</td><td>
+     
+</td><td>
+     
+</td></tr><tr><td>Футболка SDSM д дев 100% хлопок к.р. р.98-140 арт.ДЕВ-1-820</td><td>000002</td><td>кор</td><td>8751</td><td>
+     
+</td><td>
+     
+</td><td>1.0</td><td>
+     
+</td><td>
+     
+</td></tr><tr><td>Джемпер (толстовка) SDSM д дев 100% хлопок дл.р. р.98-140 арт.ДЕВ-5-820</td><td>000003</td><td>кор</td><td>8751</td><td>
+     
+</td><td>
+     
+</td><td>1.0</td><td>
+     
+</td><td>
+     
+</td></tr><tr><td>Брюки SDSM д дев 100% хлопок р.98-140 арт.ДЕВ-7-820</td><td>000004</td><td>кор</td><td>8751</td><td>
+     
+</td><td>
+     
+</td><td>1.0</td><td>
+     
+</td><td>
+     
+</td></tr><tr><td>Футболка SDSM д мал 100% хлопок дл.р. р.98-140 арт.МАЛ-9-820</td><td>000005</td><td>кор</td><td>8751</td><td>
+     
+</td><td>
+     
+</td><td>1.0</td><td>
+     
+</td><td>
+     
+</td></tr><tr><td>Пижама (футболка+брюки) SDSM д мал 100% хлопок р.98-140 арт.МАЛ-13-820</td><td>000006</td><td>кор</td><td>8751</td><td>
+     
+</td><td>
+     
+</td><td>1.0</td><td>
+     
+</td><td>
+     
+</td></tr><tr><td>Футболка SDSM д мал 60% хлопок 40% полиэстер дл.р. р.98-140 арт.МАЛ-10-820</td><td>000007</td><td>кор</td><td>8751</td><td>
+     
+</td><td>
+     
+</td><td>1.0</td><td>
+     
+</td><td>
+     
+</td></tr><tr><td>Пижама (футболка+шорты) SDSM д мал 100% хлопок р.98-140 арт.МАЛ-12-820</td><td>000008</td><td>кор</td><td>8751</td><td>
+     
+</td><td>
+     
+</td><td>1.0</td><td>
+     
+</td><td>
+     
+</td></tr><tr><td>Сорочка SDSM д дев 100% хлопок к.р. р.98-140 арт.ДЕВ-14-820</td><td>000009</td><td>кор</td><td>8751</td><td>
+     
+</td><td>
+     
+</td><td>1.0</td><td>
+     
+</td><td>
+     
+</td></tr></table></div><div class="wrapper torg-2 page-three" style="margin-top: 20px;"><div class="table fs-14"><div class="t-r">
+    3-я страница формы № ТОРГ-2
+</div><div class="t-l" style="text-indent: 30px; margin-top: 20px;">
+    Условия хранения товара (продукции) до его вскрытия на складе получателя:
+</div><div class="td b-b">
+     
+</div></div><div class="table fs-14"><div class="d-f" style="margin-top: 10px; text-indent: 30px;">
+    Сведения о температуре при разгрузке в вагоне (рефрижераторе и т.д.) в товаре, <span style="text-indent: 0;"><sup>o</sup>С
+              </span><div class="b-b grow" style="margin-left: 10px;"> </div></div><div class="t-j" style="margin-top: 15px; margin-top: 5px; text-align: justify; text-indent: 30px;">
+    Состояние тары и упаковки, маркировка мест, товара и тары в момент внешнего осмотра товара
+</div><div class="d-f" style="margin-top: 0px;">
+    (продукции)
+    <div class="b-b grow" style="margin-left: 10px;"> </div></div><div class="td b-b" style="margin-top: 0px;">
+     
+</div><div class="d-f" style="margin-top: 0px; justify-content: flex-start;"><div class="td t-l" style="padding-left: 0;">
+    Дата вскрытия тары
+</div><div class="d-f" style="width: 40%; margin-left: 10px;"><div class="d-f" style="width: 18%; align-items: flex-end;"><span class="no-br"> “</span><div class="b-b td" style="width: 100%">
+     
+</div><span>”</span></div><div class="b-b td" style="width: 45%">
+     
+</div><div class="b-b td" style="width: 16%">
+     
+</div><span>г.</span></div></div><div class="t-j" style="margin-top: 5px; text-align: justify; text-indent: 30px;">
+    Организация, которая взвесила и опломбировала отгруженный товар, исправность пломб и
+</div><div class="d-f" style="margin-top: 0px;">
+    содержание оттисков, соответствие пломб товаросопроводительным документам
+    <div class="b-b grow" style="margin-left: 10px;"> </div></div><div class="td b-b" style="margin-top: 0px;">
+     
+</div><div class="t-j" style="margin-top: 15px; margin-top: 5px; text-align: justify; text-indent: 30px;">
+    Порядок отбора товара (продукции) для выборочной проверки с указанием ГОСТ, особых условий
+</div><div class="d-f" style="margin-top: 0px;">
+    поставки по договору (контракту), основание выборочной проверки:
+    <div class="b-b grow" style="margin-left: 10px;"> </div></div><div class="td b-b">
+     
+</div><div class="td b-b">
+     
+</div><div class="td b-b">
+     
+</div><div class="td b-b">
+     
+</div><div class="td b-b">
+     
+</div><div class="td b-b">
+     
+</div><div class="td b-b">
+     
+</div><div class="td b-b">
+     
+</div><div class="td b-b">
+     
+</div><table width="100%" border="0" cellspacing="0" cellpadding="0" class="table bordered condition" style="margin-top: 20px;"><tr><td colspan="5" width="7%">Фак­ти­чес­ки  ока­за­лось</td><td colspan="2" width="6.5%">Брак</td><td colspan="2" width="6.5%">Бой</td><td colspan="4" width="6.5%">Отклонения</td><td rowspan="3" width="12%" style="font-size: 13px;">
+    Но­мер<br /> пас­пор­та
+</td></tr><tr><td rowspan="2">артикул  то­ва­ра</td><td rowspan="2">сорт</td><td rowspan="2">ко­ли­чест­во  (масса)</td><td rowspan="2" width="4%">це­на, руб. коп.</td><td rowspan="2">сумма, руб. коп.</td><td rowspan="2">ко­ли­че­ство (масса)</td><td rowspan="2">сумма, руб. коп.</td><td rowspan="2" width="3.5%">ко­ли­че­ство (масса)</td><td rowspan="2">сумма, руб. коп.</td><td colspan="2">не­дос­та­ча</td><td colspan="2">из­лиш­ки</td></tr><tr><td width="3%">ко­ли­че­ство (масса)</td><td width="3%">сумма, руб. коп.</td><td width="3%">ко­ли­че­ство (масса)</td><td width="3%">сумма,  руб. коп.</td></tr><tr><td>
+     
+</td><td>
+     
+</td><td>1.0</td><td>
+     
+</td><td>
+     
+</td><td>
+     
+</td><td>
+     
+</td><td>
+     
+</td><td>
+     
+</td><td>
+     
+</td><td>
+     
+</td><td>
+     
+</td><td>
+     
+</td><td>
+     
+</td></tr><tr><td>
+     
+</td><td>
+     
+</td><td>1.0</td><td>
+     
+</td><td>
+     
+</td><td>
+     
+</td><td>
+     
+</td><td>
+     
+</td><td>
+     
+</td><td>
+     
+</td><td>
+     
+</td><td>
+     
+</td><td>
+     
+</td><td>
+     
+</td></tr><tr><td>
+     
+</td><td>
+     
+</td><td>1.0</td><td>
+     
+</td><td>
+     
+</td><td>
+     
+</td><td>
+     
+</td><td>
+     
+</td><td>
+     
+</td><td>
+     
+</td><td>
+     
+</td><td>
+     
+</td><td>
+     
+</td><td>
+     
+</td></tr><tr><td>
+     
+</td><td>
+     
+</td><td>1.0</td><td>
+     
+</td><td>
+     
+</td><td>
+     
+</td><td>
+     
+</td><td>
+     
+</td><td>
+     
+</td><td>
+     
+</td><td>
+     
+</td><td>
+     
+</td><td>
+     
+</td><td>
+     
+</td></tr><tr><td>
+     
+</td><td>
+     
+</td><td>1.0</td><td>
+     
+</td><td>
+     
+</td><td>
+     
+</td><td>
+     
+</td><td>
+     
+</td><td>
+     
+</td><td>
+     
+</td><td>
+     
+</td><td>
+     
+</td><td>
+     
+</td><td>
+     
+</td></tr><tr><td>
+     
+</td><td>
+     
+</td><td>1.0</td><td>
+     
+</td><td>
+     
+</td><td>
+     
+</td><td>
+     
+</td><td>
+     
+</td><td>
+     
+</td><td>
+     
+</td><td>
+     
+</td><td>
+     
+</td><td>
+     
+</td><td>
+     
+</td></tr><tr><td>
+     
+</td><td>
+     
+</td><td>1.0</td><td>
+     
+</td><td>
+     
+</td><td>
+     
+</td><td>
+     
+</td><td>
+     
+</td><td>
+     
+</td><td>
+     
+</td><td>
+     
+</td><td>
+     
+</td><td>
+     
+</td><td>
+     
+</td></tr><tr><td>
+     
+</td><td>
+     
+</td><td>1.0</td><td>
+     
+</td><td>
+     
+</td><td>
+     
+</td><td>
+     
+</td><td>
+     
+</td><td>
+     
+</td><td>
+     
+</td><td>
+     
+</td><td>
+     
+</td><td>
+     
+</td><td>
+     
+</td></tr><tr><td>
+     
+</td><td>
+     
+</td><td>1.0</td><td>
+     
+</td><td>
+     
+</td><td>
+     
+</td><td>
+     
+</td><td>
+     
+</td><td>
+     
+</td><td>
+     
+</td><td>
+     
+</td><td>
+     
+</td><td>
+     
+</td><td>
+     
+</td></tr></table></div></div><div class="wrapper torg-2 page-four" style="margin-top: 20px;"><div class="table fs-14"><div class="t-r">
+    4-я страница формы № ТОРГ-2
+</div><div class="d-f t-l" style="margin-top: 20px; margin-top: 5px; text-align: justify; text-indent: 30px;">
+    Определение количества товара (продукции) проводилось
+    <div class="td b-b grow" style="margin-left: 10px;">
+         
+        <span class="sub-text fs-8" style="width: 100%;">(взвешиванием, счетом мест, обмером и т. п.,</span></div></div><div class="td b-b" style="margin-left: 10px; margin-top: 10px;">
+     
+    <span class="sub-text fs-8" style="width: 100%;">место определения количества товара (продукции))</span></div><div class="td b-b" style="margin-left: 10px; margin-top: 10px;">
+     
+</div><div class="t-j" style="margin-top: 5px; text-align: justify; text-indent: 30px;">
+    Взвешивание товаров (продукции) проводилось на исправных весах, проверенных в установленном
+</div><div class="d-f" style="margin-top: 0px;">
+    порядке. Сведение об исправности весоизмерительных приборов (тип весов, год клеймения)
+    <div class="b-b grow" style="margin-left: 10px;"> </div></div><div class="d-f" style="text-indent: 30px; margin-top: 2px;">
+    Другие данные
+    <div class="b-b grow" style="margin-left: 10px;"> </div></div><div class="t-l" style="text-indent: 30px; margin-top: 10px;">
+    По остальным товарно-материальным ценностям, перечисленным в сопроводительных документах поставщика, расхождений в количестве и качестве нет.
+</div><div class="t-j" style="margin-top: 15px; text-align: justify; text-indent: 30px;">
+    Подробное описание дефектов (характер недостачи, излишков, ненадлежащего качества, брака, боя)
+</div><div class="d-f" style="margin-top: 0px;">
+    и мнение комиссии о причинах их образования
+    <div class="b-b grow" style="margin-left: 10px;"> </div></div><div class="d-f" style="text-indent: 30px; margin-top: 5px;">
+    Заключение комиссии:
+    <div class="b-b grow" style="margin-left: 10px;">Перечисленные в документе ценности приняты полностью.</div></div><div class="t-l" style="text-indent: 30px; margin-top: 15px;">
+    Члены комиссии предупреждены об ответственности за подписание акта, содержащего данные, не соответствующие действительности.
+</div><div class="d-f"><div>
+    Председатель комиссии
+</div><div class="td b-b grow" style="margin-right:10px; margin-left: 10px;">
+     
+    <span class="sub-text fs-8">(место работы, должность)</span></div><div class="td b-b" style="width: 15%">
+     
+    <span class="sub-text fs-8" style="width: 100%;">(подпись)</span></div><div class="td b-b" style="margin-left: 10px; width: 25%;">
+     
+    <span class="sub-text fs-8">(расшифровка подписи)</span></div></div><div class="d-f" style="margin-top: 5px;"><div>
+    Члены комиссии:
+</div><div class="td b-b grow" style="margin-right:10px; margin-left: 10px;">
+     
+    <span class="sub-text fs-8">(место работы, должность)</span></div><div class="td b-b" style="width: 15%">
+     
+    <span class="sub-text fs-8" style="width: 100%;">(подпись)</span></div><div class="td b-b" style="margin-left: 10px; width: 25%;">
+     
+    <span class="sub-text fs-8">(расшифровка подписи)</span></div></div><div class="d-f" style="margin-top: 5px;"><div style="width:16%"></div><div class="td b-b grow" style="margin-right:10px; margin-left: 10px;">
+     
+    <span class="sub-text fs-8">(место работы, должность)</span></div><div class="td b-b" style="width: 15%">
+     
+    <span class="sub-text fs-8" style="width: 100%;">(подпись)</span></div><div class="td b-b" style="margin-left: 10px; width: 25%;">
+     
+    <span class="sub-text fs-8">(расшифровка подписи)</span></div></div><div class="d-f" style="margin-top: 5px;"><div style="width:16%"></div><div class="td b-b grow" style="margin-right:10px; margin-left: 10px;">
+     
+    <span class="sub-text fs-8">(место работы, должность)</span></div><div class="td b-b" style="width: 15%">
+     
+    <span class="sub-text fs-8" style="width: 100%;">(подпись)</span></div><div class="td b-b" style="margin-left: 10px; width: 25%;">
+     
+    <span class="sub-text fs-8">(расшифровка подписи)</span></div></div><div class="t-l" style="margin-top: 25px;">Представитель грузоотправителя (поставщика, производителя)</div><div class="d-f" style="margin-top: 5px;"><div class="td b-b grow" style="margin-right:10px;">
+     
+    <span class="sub-text fs-8">(место работы, должность)</span></div><div class="td b-b" style="width: 15%">
+     
+    <span class="sub-text fs-8" style="width: 100%;">(подпись)</span></div><div class="td b-b" style="margin-left: 10px; width: 25%;">
+     
+    <span class="sub-text fs-8">(расшифровка подписи)</span></div></div><div class="d-f" style="margin-top: 20px;">
+    Документ, удостоверяющий полномочия
+    <div class="b-b grow" style="margin-left: 10px;"> </div></div><div class="d-f" style="margin-top: 15px; justify-content: flex-start;"><div class="d-f" style="width: 60%;"><div class="td t-l" style="padding-left: 0;">
+    №
+</div><div class="b-b td" style="width: 30%">
+     
+</div><div class="td t-l" style="margin-left: 5px;">
+    выдан
+</div><div class="d-f" style="width: 16%; align-items: flex-end; margin-right: 5px;"><span class="no-br"> “</span><div class="b-b td" style="width: 100%">
+     
+</div><span>”</span></div><div class="b-b td" style="width: 40%; margin-right: 5px;">
+     
+</div><div class="b-b td" style="width: 16%">
+     
+</div><span>г.</span></div></div><div class="d-f" style="margin-top: 15px; justify-content: flex-start;"><div class="d-f" style="width: 60%;"><div class="t-l" style="margin-right: 5px;">
+    Акт с приложением на
+</div><div class="b-b grow" style="width: 30%">
+     
+</div><div class="t-l" style="margin-left: 5px;">
+    листах получил
+</div></div></div><div class="d-f" style="justify-content: flex-start; margin-top: 10px;"><div>
+    Главный (старший) бухгалтер
+</div><div class="td b-b" style="width: 15%; margin-left: 5px;">
+     
+    <span class="sub-text fs-8" style="width: 100%;">(подпись)</span></div><div class="td b-b" style="margin-left: 10px; width: 25%;">
+     
+    <span class="sub-text fs-8">(расшифровка подписи)</span></div></div><div class="d-f" style="margin-top: 25px;">
+    Решение руководителя
+    <div class="b-b grow" style="margin-left: 10px;"> </div></div><div class="td b-b">
+     
+</div><div class="td b-b">
+     
+</div><div class="td b-b">
+     
+</div></div></div></body></html>

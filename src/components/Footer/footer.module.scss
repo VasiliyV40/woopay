@@ -1,0 +1,155 @@
+@import "./src/styles/variables";
+.footer {
+  background-color: $color-middle-black;
+  width: 100%;
+  text-align: left;
+  color: #ffffff;
+  padding-top: 74px;
+  margin-top: 218px;
+
+  .wrapper {
+    background-color: transparent;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 30px;
+    box-sizing: border-box;
+
+    .title {
+      font-family: 'gilroy';
+      font-weight: 300;
+      font-size: 56px;
+      line-height: 64px;
+      color: transparent;
+      -webkit-background-clip: text;
+      background-clip: text;
+      background-image: $color-gradient;
+      max-width: 440px;
+      margin: 0;
+    }
+    p {
+      font-size: 21px;
+      line-height: 32px;
+      font-weight: 400;
+      max-width: 350px;
+      margin: 32px 0 0 0;
+    }
+    .contact {
+      margin-top: 100px;
+      margin-bottom: 130px;
+      .item {
+        font-size: 24px;
+        line-height: 28px;
+        margin-right: 24px;
+        a {
+          font-size: 28px;
+          line-height: 33px;
+          color: #ffffff;
+          text-decoration: none;
+          margin-top: 8px;
+          display: inline-block;
+        }
+        span {
+          display: block;
+          margin-top: 8px;
+        }
+      }
+    }
+  }
+  .copy {
+    background-color: $color-black;
+    padding-top: 24px;
+    padding-bottom: 24px;
+    .wrapper {
+      padding: 0 30px;
+    }
+    p {
+      font-size: 14px;
+      line-height: 18px;
+      color: $color-grey-three;
+      margin: 0 32px 0 0;
+      flex-grow: 1;
+      max-width: none;
+    }
+    .menu {
+      background-color: transparent;
+      border: none;
+      line-height: 18px;
+      color: #ffffff;
+      display: flex;
+      justify-content: flex-end;
+      flex-wrap: wrap;
+
+      .menuItem {
+        margin-right: 32px;
+        color: #ffffff;
+        white-space: nowrap;
+        cursor: pointer;
+        position: relative;
+        margin-bottom: 20px;
+        &:before {
+          content: "";
+          position: absolute;
+          bottom:0;
+          width: 0;
+          height: 1px;
+          background-color:#ffffff;
+          left:50%;
+          transition: all 0.125s ease-in-out;
+        }
+        &:hover {
+          //border-bottom: 1px solid #ffffff;
+          &:before {
+            width: 100%;
+            left:0;
+          }
+        }
+      }
+      /*:global {
+        .ant-menu-item{
+          color: #ffffff;
+          font-family: "gilroy";
+          font-weight: 300;
+          font-size: 15px;
+          line-height: 16px;
+          &:hover{
+            color: #ffffff;
+            &:after {
+
+              border-bottom-color: #ffffff;
+            }
+          }
+          &:after {
+            border-bottom-width: 1px !important;
+          }
+          &:nth-child(4) {
+            padding-right: 0;
+          }
+        }
+      }*/
+    }
+  }
+}
+
+@media (max-width: 762px) {
+  .footer {
+    margin-top: 128px;
+    padding-top: 0px;
+    .wrapper {
+      .title, p {
+        display: none;
+      }
+      .contact {
+        margin-top: 50px;
+        margin-bottom: 50px;}
+    }
+    .copy {
+      .copyCol {
+        flex-direction: column-reverse;
+      }
+      .menu {
+        justify-content: center;
+      }
+    }
+  }
+}

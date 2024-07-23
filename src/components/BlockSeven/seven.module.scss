@@ -1,0 +1,76 @@
+@import "./src/styles/variables";
+.seven {
+  background-color: #ffffff;
+  background-image: url("../../images/block-seven-bg.jpg");
+  background-repeat: no-repeat;
+  background-position: center 30px;
+  width: 100%;
+  z-index: 3;
+  position: relative;
+  &:after{
+    content:'';
+    position: absolute;
+    bottom: -128px;
+    display: block;
+    width: 100%;
+    height: 128px;
+    background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%);
+  }
+
+  .wrapper {
+    background-color: transparent;
+    width: 100%;
+    max-width: 1140px;
+    padding-top: 128px;
+    padding-bottom: 58px;
+    text-align: center;
+    padding-right: 30px;
+    padding-left: 30px;
+    margin: 0 auto;
+    box-sizing: border-box;
+    .title {
+      font-family: 'gilroy';
+      font-weight: 300;
+      font-size: 32px;
+      line-height: 48px;
+      color: transparent;
+      -webkit-background-clip: text;
+      background-clip: text;
+      background-image: $color-gradient;
+      max-width: 440px;
+      margin: 0 auto;
+    }
+    .accordion {
+      text-align: left;
+      background-color: transparent;
+      font-size: 16px;
+      line-height: 21px;
+      font-family: "gotham";
+      margin: 56px auto 0 auto;
+      max-width:950px;
+      :global {
+        .ant-collapse-item {
+          border-bottom-style: dashed;
+          border-bottom-color: $color-grey-two;
+          .ant-collapse-header {
+            font-size: 18px;
+            line-height: 21px;
+            font-weight: 600;
+            padding: 16px;
+            .ant-collapse-arrow {
+              font-size: 21px;
+            }
+            .ant-collapse-header-text {
+
+            }
+          }
+          .ant-collapse-content {
+            .ant-collapse-content-box {
+              padding-right: 60px;
+            }
+          }
+        }
+      }
+    }
+  }
+}

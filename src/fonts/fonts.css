@@ -1,0 +1,34 @@
+@font-face {
+  font-family: "gilroy";
+  font-style:normal;
+  font-weight: 100;
+  src: url("./Gilroy-Light.ttf");
+}
+
+@font-face {
+  font-family: "gilroy";
+  font-style:normal;
+  font-weight: 300;
+  src: url("./Gilroy-Regular.ttf");
+}
+
+@font-face {
+  font-family: "gilroy";
+  font-style:normal;
+  font-weight: 600;
+  src: url("./Gilroy-Bold.ttf");
+}
+
+@font-face {
+  font-family: "gotham";
+  font-style:normal;
+  font-weight: 300;
+  src: url("./gothampro.ttf");
+}
+
+@font-face {
+  font-family: "gotham";
+  font-style:normal;
+  font-weight: 600;
+  src: url("./gothampro_bold.ttf");
+}

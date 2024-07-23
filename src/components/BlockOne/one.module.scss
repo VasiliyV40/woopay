@@ -1,0 +1,128 @@
+@import "./src/styles/variables";
+.one {
+  background: url("../../images/block-one-bg.jpg") no-repeat;
+  background-position: top center;
+  width: 100%;
+}
+.wrapper {
+  background-color: transparent;
+  width: 100%;
+  max-width: 1140px;
+  padding-top: 150px;
+  min-height: 600px;
+  padding-right: 30px;
+  padding-left: 30px;
+  margin: 0 auto;
+  .block {
+    max-width: 600px;
+    width: 45%;
+    text-align: left;
+    .logo {
+      max-width: 560px;
+      display: flex;
+      margin-top: 100px;
+
+      .items {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        margin-right: 54px;
+        img {
+
+          width: 48px;
+        }
+      }
+    }
+  }
+  .title {
+    font-family: 'gilroy';
+    font-weight: 300;
+    font-size: 56px;
+    line-height: 64px;
+    color: transparent;
+    -webkit-background-clip: text;
+    background-clip: text;
+    background-image: $color-gradient;
+  }
+  .text {
+    display: flex;
+    color: #A2A9B5;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 21px;
+    align-items: center;
+
+    span{
+      max-width: 200px;
+      margin-left: 16px;
+      font-size: 14px;
+      font-style: normal;
+      font-weight: 400;
+      line-height: 21px;
+    }
+  }
+  p {
+    max-width: 420px;
+    font-family: "gotham";
+    font-size: 21px;
+    line-height: 32px;
+    font-weight: 400;
+    margin-top: 56px;
+  }
+}
+@media (max-width: 1024px) {
+  .wrapper {
+    .block {
+      .logo{
+        .items {
+          margin-right: 15px;
+          img {
+            width: 17%;
+            margin-right: 8px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 762px) {
+  .wrapper {
+    background-color: transparent;
+    width: 100%;
+    max-width: 1140px;
+    padding-top: 0px;
+    min-height: 600px;
+    padding-right: 30px;
+    padding-left: 30px;
+    margin: 0 auto;
+    box-sizing: border-box;
+    padding-bottom: 60px;
+
+    .block {
+      max-width: 100%;
+      width: 100%;
+      text-align: left;
+      .logo {
+        max-width: 560px;
+        display: flex;
+        margin-top: 100px;
+
+        .items {
+          display: flex;
+          justify-content: space-between;
+          width: 100%;
+          margin-right: 20px;
+          img {
+
+            width: 16%;
+            max-width: 48px;
+            margin-right: 5px;
+          }
+        }
+      }
+    }
+  }
+}
+

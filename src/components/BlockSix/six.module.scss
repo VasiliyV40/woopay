@@ -1,0 +1,68 @@
+@import "./src/styles/variables";
+.six {
+  background-color: #ffffff;
+  background-image: url("../../images/block-six-bg.jpg");
+  background-repeat: no-repeat;
+  background-position: center 30px;
+  width: 100%;
+  z-index: 3;
+  position: relative;
+  &:after{
+    content:'';
+    position: absolute;
+    bottom: -128px;
+    display: block;
+    width: 100%;
+    height: 128px;
+    background: linear-gradient(180deg, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 100%);
+  }
+  .wrapper {
+    background-color: transparent;
+    width: 100%;
+    max-width: 1140px;
+    padding-top: 150px;
+    text-align: center;
+    padding-right: 30px;
+    padding-left: 30px;
+    margin: 0 auto;
+    box-sizing: border-box;
+    .title {
+      font-family: 'gilroy';
+      font-weight: 300;
+      font-size: 32px;
+      line-height: 48px;
+      color: transparent;
+      -webkit-background-clip: text;
+      background-clip: text;
+      background-image: $color-gradient;
+      max-width: 440px;
+      margin: 0 auto;
+    }
+
+    p {
+      max-width: 700px;
+      font-family: "gotham";
+      font-size: 16px;
+      line-height: 24px;
+      font-weight: 440;
+      margin: 56px auto 120px auto;
+    }
+    .item {
+      text-align: center;
+      img {
+        width: 80px;
+      }
+      h4 {
+        font-size: 19px;
+        line-height: 28px;
+        margin: 24px 0;
+      }
+      p {
+        font-size: 14px;
+        line-height: 21px;
+        margin: 0;
+        color: $color-middle-grey;
+      }
+    }
+  }
+}

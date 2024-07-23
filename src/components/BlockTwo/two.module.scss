@@ -1,0 +1,67 @@
+@import "./src/styles/variables";
+.two {
+  background: url("../../images/block-two-bg.jpg") no-repeat;
+  background-position: center 100px;
+  width: 100%;
+  .wrapper {
+    background-color: transparent;
+    width: 100%;
+    max-width: 1140px;
+    padding-top: 128px;
+    padding-bottom: 200px;
+    padding-right: 30px;
+    padding-left: 30px;
+    margin: 0 auto;
+    box-sizing: border-box;
+    .block {
+      width: 45%;
+      max-width: 560px;
+      text-align: left;
+      .title {
+        font-family: 'gilroy';
+        font-weight: 300;
+        font-size: 32px;
+        line-height: 48px;
+        color: transparent;
+        -webkit-background-clip: text;
+        background-clip: text;
+        background-image: $color-gradient;
+      }
+      .advantages {
+        margin-top: 56px;
+      }
+      .item {
+        display: flex;
+        width: 100%;
+        font-size: 16px;
+        line-height: 19px;
+        font-family: 'gilroy';
+        font-weight: 600;
+        align-items: center;
+        img {
+          margin-right: 16px;
+        }
+      }
+      p {
+        max-width: 550px;
+        font-family: "gotham";
+        font-size: 16px;
+        line-height: 24px;
+        font-weight: 400;
+        margin-top: 56px;
+      }
+    }
+  }
+}
+
+@media (max-width: 762px) {
+  .two {
+    .wrapper {
+      .block {
+        max-width: 100%;
+        width: 100%;
+        text-align: left;
+      }
+    }
+  }
+}

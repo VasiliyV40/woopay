@@ -8,6 +8,7 @@ const MaskInput = (props) => {
       <MaskedInput
         {...props}
         className={classes.input}
+        //value={"______-_-____-_"}
       />
     </>
   );
